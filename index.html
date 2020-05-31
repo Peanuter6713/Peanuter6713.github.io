@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en">
+<html lang="ch-zn">
 
 
 <head>
@@ -44,11 +44,6 @@
       
 <section class="cover">
     
-      
-      <a class="forkMe" href="https://github.com/Shen-Yu/hexo-theme-ayer"
-        target="_blank"><img width="149" height="149" src="/images/forkme.png"
-          class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
-    
   <div class="cover-frame">
     <div class="bg-box">
       <img src="/images/cover2.jpg" alt="image frame" />
@@ -81,7 +76,7 @@
     
     
     
-    <article id="post-搭建hexo" class="article article-type-post" itemscope
+    <article id="post-hexo-博客搭建" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -89,8 +84,8 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2020/05/27/%E6%90%AD%E5%BB%BAhexo/"
-    >First Blog</a> 
+  <a class="article-title" href="/2020/05/27/hexo-%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"
+    >Hexo 博客搭建</a> 
 </h2>
  
 
@@ -99,10 +94,14 @@
 
     
     <div class="article-meta">
-      <a href="/2020/05/27/%E6%90%AD%E5%BB%BAhexo/" class="article-date">
-  <time datetime="2020-05-27T01:27:31.000Z" itemprop="datePublished">2020-05-27</time>
+      <a href="/2020/05/27/hexo-%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="article-date">
+  <time datetime="2020-05-27T12:18:06.000Z" itemprop="datePublished">2020-05-27</time>
 </a>
       
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>
+  </div>
+
       
       
       
@@ -117,12 +116,14 @@
       
 
       
-      <h5 id="开始使用hexo搭建博客，后知后觉啊，挥去一把老泪，真的好用；记录一下下！"><a href="#开始使用hexo搭建博客，后知后觉啊，挥去一把老泪，真的好用；记录一下下！" class="headerlink" title="开始使用hexo搭建博客，后知后觉啊，挥去一把老泪，真的好用；记录一下下！"></a>开始使用hexo搭建博客，后知后觉啊，挥去一把老泪，真的好用；记录一下下！</h5><ul>
-<li>step 1: <pre><code>hexo </code></pre></li>
-<li>step 2:</li>
-</ul>
-<hr>
-
+      <ul>
+<li><p>step 1: &emsp;NodeJs &amp; Git的安装不多说，别忘了就行,最好先测试一下。安装淘宝镜像源（防止速度过慢）cnpm工具安装成功后，可用 cnpm -v 测试一下      </p>
+<pre><code>npm install -g cnpm --regitry=https://registry.npm.taobao.org</code></pre></li>
+<li><p>step 2: &emsp;全局安装hexo框架 (熟悉时，可非全局安装)</p>
+<pre><code>cnpm install -g hexo-cli</code></pre>
+      
+      <a class="article-more-link" href="/2020/05/27/hexo-%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">阅读更多...</a>
+      
       
       <!-- reward -->
       
@@ -134,8 +135,6 @@
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9A%8F%E7%AC%94/" rel="tag">随笔</a></li></ul>
-
 
     </footer>
 
@@ -145,6 +144,8 @@
 
   
   
+
+
   
 
   
@@ -165,7 +166,7 @@
     <ul>
       <li>
         Copyrights &copy;
-        2015-2020
+        2020
         <i class="ri-heart-fill heart_icon"></i> Peanuter
       </li>
     </ul>
@@ -198,8 +199,6 @@
     <ul>
       <li>
         <!-- cnzz统计 -->
-        
-        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
         
       </li>
     </ul>
@@ -243,7 +242,7 @@
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/tags/%E6%97%85%E8%A1%8C/">旅行</a>
+      <a class="nav-item-link" href="/tags/">旅行</a>
     </li>
     
     <li class="nav-item">
@@ -251,7 +250,11 @@
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/2020/about">关于我</a>
+      <a class="nav-item-link" href="/me">关于我</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="https://github.com/peanuter6713" target="_blank" rel="noopener">github</a>
     </li>
     
   </ul>
@@ -451,65 +454,6 @@
 <!-- ClickBoom -->
 
 <!-- CodeCopy -->
-
-
-<link rel="stylesheet" href="/css/clipboard.css">
-
-<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
-<script>
-  function wait(callback, seconds) {
-    var timelag = null;
-    timelag = window.setTimeout(callback, seconds);
-  }
-  !function (e, t, a) {
-    var initCopyCode = function(){
-      var copyHtml = '';
-      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
-      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
-      copyHtml += '</button>';
-      $(".highlight .code pre").before(copyHtml);
-      $(".article pre code").before(copyHtml);
-      var clipboard = new ClipboardJS('.btn-copy', {
-        target: function(trigger) {
-          return trigger.nextElementSibling;
-        }
-      });
-      clipboard.on('success', function(e) {
-        let $btn = $(e.trigger);
-        $btn.addClass('copied');
-        let $icon = $($btn.find('i'));
-        $icon.removeClass('ri-file-copy-2-line');
-        $icon.addClass('ri-checkbox-circle-line');
-        let $span = $($btn.find('span'));
-        $span[0].innerText = 'COPIED';
-        
-        wait(function () { // 等待两秒钟后恢复
-          $icon.removeClass('ri-checkbox-circle-line');
-          $icon.addClass('ri-file-copy-2-line');
-          $span[0].innerText = 'COPY';
-        }, 2000);
-      });
-      clipboard.on('error', function(e) {
-        e.clearSelection();
-        let $btn = $(e.trigger);
-        $btn.addClass('copy-failed');
-        let $icon = $($btn.find('i'));
-        $icon.removeClass('ri-file-copy-2-line');
-        $icon.addClass('ri-time-line');
-        let $span = $($btn.find('span'));
-        $span[0].innerText = 'COPY FAILED';
-        
-        wait(function () { // 等待两秒钟后恢复
-          $icon.removeClass('ri-time-line');
-          $icon.addClass('ri-file-copy-2-line');
-          $span[0].innerText = 'COPY';
-        }, 2000);
-      });
-    }
-    initCopyCode();
-  }(window, document);
-</script>
-
 
 
     
