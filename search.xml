@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>hexo-博客搭建</title>
+    <url>/2020/05/27/hexo-%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</url>
+    <content><![CDATA[<ul>
+<li><p>step 1: &emsp;NodeJs &amp; Git的安装不多说，别忘了就行,最好先测试一下。安装淘宝镜像源（防止速度过慢）cnpm工具安装成功后，可用 cnpm -v 测试一下      </p>
+<pre><code>npm install -g cnpm --regitry=https://registry.npm.taobao.org</code></pre></li>
+<li><p>step 2: &emsp;全局安装hexo框架 (熟悉时，可非全局安装)</p>
+<pre><code>cnpm install -g hexo-cli</code></pre></li>
+<li><p>step 3: &emsp;新建一个文件夹并进入 mkdir blog，初始化 也可直接（hexo init 文件夹名)</p>
+<pre><code>hexo init (或者和blog文件夹同级时 使用 hexo init blog)</code></pre></li>
+<li><p>step 4: &emsp;启动测试一下, localhost:4000，测试完成后，关闭(ctrl c)</p>
+<pre><code>hexo  s </code></pre></li>
+<li><p>step 5: &emsp;GitHub上创建新的仓库，仓库名格式严格按照username.github.io username为GitHub用户名，配置_config.yml，找到文件底部的 deploy 进行配置，repo 是GitHub上创建仓库的地址</p>
+<pre><code>deploy:
+  type: git
+  repo: https://github.com/username/username.github.io
+  branch: master</code></pre></li>
+<li><p>step 6: &emsp; 使用下列命令部署到GitHub上，注意命令后，需输入GitHub账号的用户名和密码，可通过创建的仓库名为地址进行访问</p>
+<pre><code>hexo d </code></pre></li>
+<li><p>step 7: &emsp;hexo官网主题栏寻找喜欢的，找到后克隆其地址，将其克隆到本地themes文件夹下之后<br>可通过修改_config.yml 中的 theme 更换主题</p>
+<pre><code>git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia</code></pre></li>
+<li><p>step 8: &emsp;修改blog文件夹下的_config.yml 文件中的 theme ,更换主题</p>
+<pre><code>theme: yilia</code></pre></li>
+</ul>
+<h2 id="域名绑定可参考"><a href="#域名绑定可参考" class="headerlink" title="域名绑定可参考"></a>域名绑定可参考</h2><ul>
+<li><a href="https://www.jianshu.com/p/d6ef5f02ea18" target="_blank" rel="noopener">https://www.jianshu.com/p/d6ef5f02ea18</a></li>
+</ul>
+]]></content>
+  </entry>
+</search>
