@@ -1,6 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>C#多线程孩子吃苹果</title>
+    <url>/2020/07/05/C-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AD%A9%E5%AD%90%E5%90%83%E8%8B%B9%E6%9E%9C/</url>
+    <content><![CDATA[<ul>
+<li>输入数字后，记得按回车（线程在不停运行时），ManualResetEvent是为了第一次输入苹果时，让线程处于阻塞状态，为了显示的效果。</li>
+</ul>
+<h1 id="运行效果图"><a href="#运行效果图" class="headerlink" title="运行效果图"></a>运行效果图</h1><p><img src="https://i.loli.net/2020/07/05/JI9DOmUYWR2ByKQ.png" alt="thread.png"></p>
+<h1 id="果篮类"><a href="#果篮类" class="headerlink" title="果篮类"></a>果篮类</h1><pre><code>class FruitBasket
+{
+    // The number of apples.
+    private static int appleNum = 0;
+
+    public void AddApple(int addNumber)
+    {
+        lock (this)
+        {
+            if (appleNum &gt; 0)
+            {
+                Console.WriteLine(&quot;There are {0} apple(s)&quot;, appleNum);
+            }
+            else
+            {
+                appleNum += addNumber;
+                // Activate the the waiting thread after putting apples.
+                Program.manualResetEvent.Set();
+                Console.WriteLine(&quot;There are {0} apple(s) now.&quot;, appleNum);
+            }
+        }
+    }
+
+    public bool ReduceApple(string name)
+    {
+        lock (this)
+        {
+            if (appleNum == 0)
+            {
+                Console.WriteLine(&quot;There are no apples, please add apples.&quot;);
+                return false;
+            }
+            else
+            {
+                appleNum--;
+                Console.WriteLine(&quot;{0} take an apple, there are {1} apple(s) left&quot;, name, appleNum);
+                return true;
+            }
+        }
+    }
+}</code></pre><h1 id="生产者类"><a href="#生产者类" class="headerlink" title="生产者类"></a>生产者类</h1><pre><code>class Productor
+{
+    private string Name { get; set; }
+    private FruitBasket FruitBasket { get; set; }
+
+    public Productor(string name, FruitBasket fruitBasket)
+    {
+        this.Name = name;
+        this.FruitBasket = fruitBasket;
+    }
+
+    public void PutApple()
+    {
+        int inputNumbner;
+
+        Console.WriteLine(&quot;Please input the number of apples&quot;);
+        while (true)
+        {
+            // If the input is illegal, throw a exception.
+            while (!int.TryParse(Console.ReadLine(), out inputNumbner) || inputNumbner &lt; 1)
+            {
+                Console.WriteLine(&quot;Invalid input, please input correctly&quot;);
+            }
+            this.FruitBasket.AddApple(inputNumbner);
+        }
+    }
+}</code></pre><h1 id="消费者类"><a href="#消费者类" class="headerlink" title="消费者类"></a>消费者类</h1><pre><code>class Consumer
+{
+    private string Name { get; set; }
+    private FruitBasket Fruitbasket { get; set; }
+    private int Time { get; set; }
+
+    public Consumer(string name, FruitBasket fruitBasket, int time)
+    {
+        this.Name = name;
+        this.Fruitbasket = fruitBasket;
+        this.Time = time;
+    }
+
+    public void TakeApple()
+    {         
+        // Block the waiting thread before it take apples.
+        Program.manualResetEvent.WaitOne();
+        while (true)
+        {
+            if (this.Fruitbasket.ReduceApple(this.Name))
+            {
+                Thread.Sleep(this.Time);
+            }
+            else
+            {
+                Thread.Sleep(1000);
+            }
+        }
+    }
+}</code></pre><h1 id="Program-cs"><a href="#Program-cs" class="headerlink" title="Program.cs"></a>Program.cs</h1><pre><code>class Program
+{
+    // About this can be overlooked.
+    public static ManualResetEvent manualResetEvent = new ManualResetEvent(false);
+
+    static void Main(string[] args)
+    {
+        FruitBasket fruitBasket = new FruitBasket();
+        Productor productor = new Productor(&quot;productor&quot;, fruitBasket);
+
+        Consumer childA = new Consumer(&quot;ChildA&quot;, fruitBasket, 3000);
+        Consumer childB = new Consumer(&quot;ChildB&quot;, fruitBasket, 2000);
+        Consumer childC = new Consumer(&quot;ChildC&quot;, fruitBasket, 4000);
+
+        Thread threadP = new Thread(productor.PutApple);
+        Thread threadA = new Thread(childA.TakeApple);
+        Thread threadB = new Thread(childB.TakeApple);
+        Thread threadC = new Thread(childC.TakeApple);
+
+        threadP.Start();
+        threadA.Start();
+        threadB.Start();
+        threadC.Start();
+    }
+}</code></pre>]]></content>
+      <categories>
+        <category>C#</category>
+      </categories>
+      <tags>
+        <tag>多线程</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo-博客搭建</title>
     <url>/2020/05/27/hexo-%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</url>
     <content><![CDATA[<ul>
